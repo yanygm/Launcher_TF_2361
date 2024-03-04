@@ -57,5 +57,5 @@ jobs:
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: Launcher.exe
-        path: D:\a\Launcher_TF_2361\Launcher_TF_2361
+        name: Launcher
+        path: D:\a\Launcher_TF_2361\Launcher_TF_2361\Launcher.exe
