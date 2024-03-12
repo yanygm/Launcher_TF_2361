@@ -54,6 +54,7 @@ namespace RiderData
 			NewRider.V1NormalPartsData();
 			NewRider.V1EffectData();
 			NewRider.V1BoosterEffectData();
+			NewRider.upgradeKit();
 			NewRider.Kart();
 			NewRider.NewRiderData();//라이더 인식
 			Launcher.OpenGetItem = true;
@@ -1484,6 +1485,30 @@ namespace RiderData
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(69, item);
+			}
+		}
+
+		public static void upgradeKit()
+		{
+			XmlDocument doc = new XmlDocument();
+			doc.Load(@"Profile\Item.xml");
+			if (!(doc.GetElementsByTagName("upgradeKit") == null))
+			{
+				XmlNodeList lis = doc.GetElementsByTagName("upgradeKit");
+				List<List<short>> item = new List<List<short>>();
+				foreach (XmlNode xn in lis)
+				{
+					XmlElement xe = (XmlElement)xn;
+					short i = short.Parse(xe.GetAttribute("id"));
+					short sn = 0;
+					short num = 1;
+					List<short> add = new List<short>();
+					add.Add(i);
+					add.Add(sn);
+					add.Add(num);
+					item.Add(add);
+				}
+				LoRpGetRiderItemPacket(14, item);
 			}
 		}
 
