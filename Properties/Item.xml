@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <Item>
 	<!--itemCatId='2' itemName='喷漆'-->
 	<Paint id='1' />
@@ -2719,6 +2719,11 @@
 	<V1BoosterEffectData id='21' />
 	<V1BoosterEffectData id='22' />
 	<V1BoosterEffectData id='23' />
+	<!--item itemCatId='14' itemName='改装部件'-->
+	<upgradeKit id='60' />
+	<upgradeKit id='69' />
+	<upgradeKit id='79' />
+	<upgradeKit id='85' />
 	<!--itemName='徽章'-->
 	<emblem id='30000' />
 	<emblem id='30002' />
