@@ -22,7 +22,7 @@ namespace Set_Data
 		public static byte Unk5 = 0;
 		public static byte Unk6 = 0;
 		public static byte Unk7 = 0;
-		public static byte Unk8 = 0;
+		public static byte Unk8 = 1;
 		public static byte Unk9 = 1;
 		public static byte Unk10 = 1;
 		public static byte Unk11 = 14; //녹화 품질
