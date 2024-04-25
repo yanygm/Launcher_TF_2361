@@ -109,7 +109,7 @@ namespace ExcData
 					oPacket.WriteShort(LevelList[i][0]);
 					oPacket.WriteShort(LevelList[i][1]);
 					oPacket.WriteShort(5);
-					oPacket.WriteShort(0);
+					oPacket.WriteShort(3);
 					oPacket.WriteShort(10);
 					oPacket.WriteShort(5);
 					oPacket.WriteShort(10);
