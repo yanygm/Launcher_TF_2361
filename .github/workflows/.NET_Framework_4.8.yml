@@ -1,9 +1,6 @@
-name: .NET Framework 4.8 Build
-
+name: .NET Framework 4.8
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
     branches: [ "master" ]
 
 jobs:
