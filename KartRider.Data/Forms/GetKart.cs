@@ -8,6 +8,7 @@ using KartRider.IO;
 using System.Threading;
 using System.IO;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace KartRider
 {
@@ -31,17 +32,37 @@ namespace KartRider
 				{
 					button1.Enabled = false;
 					Thread.Sleep(300);
+					short sn = 0, previous_sn;
 					if (GetKart.Item_Type == 3)
 					{
-						Launcher.KartSN++;
-						Console.WriteLine("NewKart: {0}:{1}", GetKart.Item_Code, Launcher.KartSN);
+						if (File.Exists(@"Profile\NewKart.xml"))
+						{
+							XmlDocument doc = new XmlDocument();
+							doc.Load(@"Profile\NewKart.xml");
+							XmlNodeList lis = doc.SelectNodes("//Kart[@id='" + GetKart.Item_Code + "']");
+							foreach (XmlNode xn in lis)
+							{
+								XmlElement xe = (XmlElement)xn;
+								previous_sn = sn;
+								sn = short.Parse(xe.GetAttribute("sn"));
+								if (previous_sn > sn) sn = previous_sn;
+							}
+							XmlElement newElement = doc.CreateElement("Kart");
+							newElement.SetAttribute("id", GetKart.Item_Code.ToString());
+							sn += 1;
+							newElement.SetAttribute("sn", sn.ToString());
+							XmlElement NewKart = doc.DocumentElement;
+							NewKart.AppendChild(newElement);
+							doc.Save(@"Profile\NewKart.xml");
+						}
+						Console.WriteLine("NewKart: {0}:{1}", GetKart.Item_Code, sn);
 						using (OutPacket outPacket = new OutPacket("PrRequestKartInfoPacket"))
 						{
 							outPacket.WriteByte(1);
 							outPacket.WriteInt(1);
 							outPacket.WriteShort(GetKart.Item_Type);
 							outPacket.WriteShort(GetKart.Item_Code);
-							outPacket.WriteShort(Launcher.KartSN);
+							outPacket.WriteShort(sn);
 							outPacket.WriteShort(1);//수량
 							outPacket.WriteShort(0);
 							outPacket.WriteShort(-1);

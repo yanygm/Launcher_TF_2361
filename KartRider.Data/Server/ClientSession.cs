@@ -14,6 +14,8 @@ using KartRider_SN;
 using ExcData;
 using Set_Data;
 using RiderData;
+using System.Xml;
+
 namespace KartRider
 {
 	public class ClientSession : Session
@@ -1478,9 +1480,27 @@ namespace KartRider
 					}
 					else if (hash == Adler32Helper.GenerateAdler32_ASCII("LoRqDeleteItemPacket", 0))
 					{
+						iPacket.ReadInt();
+						iPacket.ReadInt();
+						//iPacket.ReadInt();
+						//iPacket.ReadShort();
+						short ItemType = iPacket.ReadShort();
+						short ItemID = iPacket.ReadShort();
+						short SN = iPacket.ReadShort();
 						using (OutPacket outPacket = new OutPacket("LoRpDeleteItemPacket"))
 						{
 							this.Parent.Client.Send(outPacket);
+						}
+						if (ItemType == 3)
+						{
+							XmlDocument doc = new XmlDocument();
+							doc.Load(@"Profile\NewKart.xml");
+							XmlElement elementToRemove = doc.SelectSingleNode("//Kart[@id='" + ItemID + "' and @sn='" + SN + "']") as XmlElement;
+							if (elementToRemove != null)
+							{
+								elementToRemove.ParentNode.RemoveChild(elementToRemove);
+							}
+							doc.Save(@"Profile\NewKart.xml");
 						}
 						return;
 					}
