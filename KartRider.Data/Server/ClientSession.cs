@@ -761,7 +761,7 @@ namespace KartRider
 							outPacket.WriteShort(item);
 							this.Parent.Client.Send(outPacket);
 						}
-						KartExcData.AddPartsList(Kart, SN, 0, 0, 0, 0);
+						KartExcData.AddPartsList(Kart, SN, item, 0, 0, 0);
 						return;
 					}
 					else if (hash == Adler32Helper.GenerateAdler32_ASCII("PqEquipXPartsItem", 0))
