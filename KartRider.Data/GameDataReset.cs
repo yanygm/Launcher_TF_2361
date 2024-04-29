@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using KartRider_SN;
-using RiderData;
 using ExcData;
 using Set_Data;
 
@@ -12,15 +6,6 @@ namespace KartRider
 {
 	public class GameDataReset
 	{
-		/*
-		public static void RandomTrack_DataReset()
-		{
-			RandomTrack.GameType = "item";
-			RandomTrack.SetRandomTrack = "allRandom";
-			RandomTrack.GameTrack = "forest_I01";
-		}
-		*/
-
 		public static void GameType_DataReset()
 		{
 			GameType.TimeAttack_RP = 0;
@@ -175,7 +160,7 @@ namespace KartRider
 			GameDataReset.SpeedType_DataReset();
 			GameDataReset.FlyingPet_DataReset();
 			GameDataReset.Kart_DataReset();
-			PartsDataReset.PartsSpecReset();
+			TuneSpec.Reset_PartSpec_SpecData();
 			TuneSpec.Reset_Tune_SpecData();
 			TuneSpec.Reset_Plant_SpecData();
 			TuneSpec.Reset_KartLevel_SpecData();

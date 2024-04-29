@@ -1,5 +1,4 @@
-﻿
-namespace KartRider
+﻿namespace KartRider
 {
     partial class Options
     {
