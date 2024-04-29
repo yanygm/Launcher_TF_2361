@@ -969,7 +969,7 @@ namespace KartRider
 						}
 						Console.WriteLine("StartTimeAttack: {0} / {1} / {2} / {3} / {4} / {5} / {6} / {7}", StartGameData.StartTimeAttack_SpeedType, StartGameData.StartTimeAttack_GameType, StartGameData.Kart_id, StartGameData.FlyingPet_id, trackName, StartGameData.StartTimeAttack_StartType, StartGameData.StartTimeAttack_RankingTimaAttackType, StartGameData.StartTimeAttack_TimaAttackMpdeType);
 						GameType.StartType = 3;
-						RandomTrack.SetGameType();
+						//RandomTrack.SetGameType();
 						return;
 					}
 					else if (hash == Adler32Helper.GenerateAdler32_ASCII("PqFinishTimeAttack", 0))
