@@ -145,13 +145,13 @@ namespace RiderData
 					}
 					using (OutPacket outPacket = new OutPacket("PrFavoriteTrackMapGet"))
 					{
+						outPacket.WriteInt(Name.Count); //主题数量
 						for (int i = 0; i < Name.Count; i++)
 						{
 							if (!(doc.GetElementsByTagName(Name[i]) == null))
 							{
 								XmlNodeList lis = doc.GetElementsByTagName(Name[i]);
 								string theme = Name[i].Replace("theme", "");
-								outPacket.WriteInt(Name.Count); //主题数量
 								outPacket.WriteInt(int.Parse(theme)); //主题代码
 								outPacket.WriteInt(lis.Count); //赛道数量
 								foreach (XmlNode xn in lis)
