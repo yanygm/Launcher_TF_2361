@@ -22,19 +22,27 @@ namespace RiderData
 				{
 					XmlNodeList lis = doc.GetElementsByTagName("Title");
 					FavoriteItemList = new List<List<short>>();
-					foreach (XmlNode xn in lis)
+					using (OutPacket oPacket = new OutPacket("PrFavoriteItemGet"))
 					{
-						XmlElement xe = (XmlElement)xn;
-						short item = short.Parse(xe.GetAttribute("item"));
-						short id = short.Parse(xe.GetAttribute("id"));
-						short sn = short.Parse(xe.GetAttribute("sn"));
-						List<short> AddList = new List<short>();
-						AddList.Add(item);
-						AddList.Add(id);
-						AddList.Add(sn);
-						FavoriteItemList.Add(AddList);
+						oPacket.WriteInt(lis.Count);
+						foreach (XmlNode xn in lis)
+						{
+							XmlElement xe = (XmlElement)xn;
+							short item = short.Parse(xe.GetAttribute("item"));
+							short id = short.Parse(xe.GetAttribute("id"));
+							short sn = short.Parse(xe.GetAttribute("sn"));
+							oPacket.WriteShort(item);
+							oPacket.WriteShort(id);
+							oPacket.WriteShort(sn);
+							oPacket.WriteByte(0);
+							List<short> AddList = new List<short>();
+							AddList.Add(item);
+							AddList.Add(id);
+							AddList.Add(sn);
+							FavoriteItemList.Add(AddList);
+						}
+						RouterListener.MySession.Client.Send(oPacket);
 					}
-					PrFavoriteItemGet(FavoriteItemList);
 				}
 			}
 		}
@@ -135,15 +143,15 @@ namespace RiderData
 							}
 						}
 					}
-					for (int i = 0; i < Name.Count; i++)
+					using (OutPacket outPacket = new OutPacket("PrFavoriteTrackMapGet"))
 					{
-						using (OutPacket outPacket = new OutPacket("PrFavoriteTrackMapGet"))
+						for (int i = 0; i < Name.Count; i++)
 						{
 							if (!(doc.GetElementsByTagName(Name[i]) == null))
 							{
 								XmlNodeList lis = doc.GetElementsByTagName(Name[i]);
 								string theme = Name[i].Replace("theme", "");
-								outPacket.WriteInt(i + 1); //主题数量
+								outPacket.WriteInt(Name.Count); //主题数量
 								outPacket.WriteInt(int.Parse(theme)); //主题代码
 								outPacket.WriteInt(lis.Count); //赛道数量
 								foreach (XmlNode xn in lis)
@@ -159,8 +167,8 @@ namespace RiderData
 							{
 								outPacket.WriteInt(0);
 							}
-							RouterListener.MySession.Client.Send(outPacket);
 						}
+						RouterListener.MySession.Client.Send(outPacket);
 					}
 				}
 				else
@@ -249,17 +257,9 @@ namespace RiderData
 			for (int i = 0; i < times; i++)
 			{
 				var tempList = Favorite.GetRange(i * range, (i + 1) * range > Favorite.Count ? (Favorite.Count - i * range) : range);
-				using (OutPacket oPacket = new OutPacket("PrFavoriteItemGet"))
-				{
-					oPacket.WriteInt(tempList.Count);
-					for (int f = 0; f < tempList.Count; f++)
-					{
-						oPacket.WriteShort(Favorite[f][0]);
-						oPacket.WriteShort(Favorite[f][1]);
-						oPacket.WriteShort(Favorite[f][2]);
-						oPacket.WriteByte(0);
-					}
-					RouterListener.MySession.Client.Send(oPacket);
+
+					
+
 				}
 			}
 		}
