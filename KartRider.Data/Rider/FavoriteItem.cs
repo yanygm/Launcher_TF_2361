@@ -14,44 +14,28 @@ namespace RiderData
 
 		public static void Favorite_Item()
 		{
-			using (OutPacket outPacket = new OutPacket("PrFavoriteItemGet"))
+			if (File.Exists(@"Profile\Favorite.xml"))
 			{
-				if (File.Exists(@"Profile\Favorite.xml"))
+				XmlDocument doc = new XmlDocument();
+				doc.Load(@"Profile\Favorite.xml");
+				if (!(doc.GetElementsByTagName("Title") == null))
 				{
-					XmlDocument doc = new XmlDocument();
-					doc.Load(@"Profile\Favorite.xml");
+					XmlNodeList lis = doc.GetElementsByTagName("Title");
 					FavoriteItemList = new List<List<short>>();
-					if (!(doc.GetElementsByTagName("Title") == null))
+					foreach (XmlNode xn in lis)
 					{
-						XmlNodeList lis = doc.GetElementsByTagName("Title");
-						outPacket.WriteInt(lis.Count);
-						foreach (XmlNode xn in lis)
-						{
-							XmlElement xe = (XmlElement)xn;
-							short item = short.Parse(xe.GetAttribute("item"));
-							short id = short.Parse(xe.GetAttribute("id"));
-							short sn = short.Parse(xe.GetAttribute("sn"));
-							outPacket.WriteShort(item);
-							outPacket.WriteShort(id);
-							outPacket.WriteShort(sn);
-							outPacket.WriteByte(0);
-							List<short> AddList = new List<short>();
-							AddList.Add(item);
-							AddList.Add(id);
-							AddList.Add(sn);
-							FavoriteItemList.Add(AddList);
-						}
+						XmlElement xe = (XmlElement)xn;
+						short item = short.Parse(xe.GetAttribute("item"));
+						short id = short.Parse(xe.GetAttribute("id"));
+						short sn = short.Parse(xe.GetAttribute("sn"));
+						List<short> AddList = new List<short>();
+						AddList.Add(item);
+						AddList.Add(id);
+						AddList.Add(sn);
+						FavoriteItemList.Add(AddList);
 					}
-					else
-					{
-						outPacket.WriteInt(0);
-					}
+					PrFavoriteItemGet(FavoriteItemList);
 				}
-				else
-				{
-					outPacket.WriteInt(0);
-				}
-				RouterListener.MySession.Client.Send(outPacket);
 			}
 		}
 
@@ -151,10 +135,10 @@ namespace RiderData
 							}
 						}
 					}
-					using (OutPacket outPacket = new OutPacket("PrFavoriteTrackMapGet"))
+					outPacket.WriteInt(Name.Count); //主题数量
+					for (int i = 0; i < Name.Count; i++)
 					{
-						outPacket.WriteInt(Name.Count); //主题数量
-						for (int i = 0; i < Name.Count; i++)
+						using (OutPacket outPacket = new OutPacket("PrFavoriteTrackMapGet"))
 						{
 							if (!(doc.GetElementsByTagName(Name[i]) == null))
 							{
@@ -255,6 +239,28 @@ namespace RiderData
 				xe1.SetAttribute("track", SaveFavorite[i][1]);
 				root.AppendChild(xe1);
 				xmlDoc.Save(@"Profile\FavoriteTrack.xml");
+			}
+		}
+
+		public static void PrFavoriteItemGet(List<List<short>> Favorite)
+		{
+			int range = 10;//分批次数
+			int times = Favorite.Count / range + (Favorite.Count % range > 0 ? 1 : 0);
+			for (int i = 0; i < times; i++)
+			{
+				var tempList = Favorite.GetRange(i * range, (i + 1) * range > Favorite.Count ? (Favorite.Count - i * range) : range);
+				using (OutPacket oPacket = new OutPacket("PrFavoriteItemGet"))
+				{
+					oPacket.WriteInt(tempList.Count);
+					for (int f = 0; f < tempList.Count; f++)
+					{
+						oPacket.WriteShort(Favorite[f][0]);
+						oPacket.WriteShort(Favorite[f][1]);
+						oPacket.WriteShort(Favorite[f][2]);
+						oPacket.WriteByte(0);
+					}
+					RouterListener.MySession.Client.Send(oPacket);
+				}
 			}
 		}
 	}
