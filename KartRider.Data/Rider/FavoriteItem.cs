@@ -159,8 +159,8 @@ namespace RiderData
 							{
 								outPacket.WriteInt(0);
 							}
+							RouterListener.MySession.Client.Send(outPacket);
 						}
-						RouterListener.MySession.Client.Send(outPacket);
 					}
 				}
 				else
