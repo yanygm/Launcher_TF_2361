@@ -161,6 +161,7 @@ namespace RiderData
 									outPacket.WriteShort(short.Parse(theme)); //主题代码
 									outPacket.WriteInt(track); //赛道代码
 									outPacket.WriteByte(0);
+									Console.WriteLine("主题代码：{0}，赛道代码：{1}", theme, track);
 								}
 							}
 							else
