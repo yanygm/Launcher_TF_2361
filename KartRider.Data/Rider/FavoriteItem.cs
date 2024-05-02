@@ -143,7 +143,7 @@ namespace RiderData
 							{
 								XmlNodeList lis = doc.GetElementsByTagName(Name[i]);
 								string theme = Name[i].Replace("theme", "");
-								outPacket.WriteInt(i); //主题数量
+								outPacket.WriteInt(i + 1); //主题数量
 								outPacket.WriteInt(int.Parse(theme)); //主题代码
 								outPacket.WriteInt(lis.Count); //赛道数量
 								foreach (XmlNode xn in lis)
