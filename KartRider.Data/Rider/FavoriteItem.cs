@@ -249,19 +249,5 @@ namespace RiderData
 				xmlDoc.Save(@"Profile\FavoriteTrack.xml");
 			}
 		}
-
-		public static void PrFavoriteItemGet(List<List<short>> Favorite)
-		{
-			int range = 10;//分批次数
-			int times = Favorite.Count / range + (Favorite.Count % range > 0 ? 1 : 0);
-			for (int i = 0; i < times; i++)
-			{
-				var tempList = Favorite.GetRange(i * range, (i + 1) * range > Favorite.Count ? (Favorite.Count - i * range) : range);
-
-					
-
-				}
-			}
-		}
 	}
 }
