@@ -15,36 +15,44 @@ namespace RiderData
 
 		public static void Favorite_Item()
 		{
-			if (File.Exists(@"Profile\Favorite.xml"))
+			using (OutPacket outPacket = new OutPacket("PrFavoriteItemGet"))
 			{
-				XmlDocument doc = new XmlDocument();
-				doc.Load(@"Profile\Favorite.xml");
-				if (!(doc.GetElementsByTagName("Title") == null))
+				if (File.Exists(@"Profile\Favorite.xml"))
 				{
-					XmlNodeList lis = doc.GetElementsByTagName("Title");
+					XmlDocument doc = new XmlDocument();
+					doc.Load(@"Profile\Favorite.xml");
 					FavoriteItemList = new List<List<short>>();
-					using (OutPacket oPacket = new OutPacket("PrFavoriteItemGet"))
+					if (!(doc.GetElementsByTagName("Title") == null))
 					{
-						oPacket.WriteInt(lis.Count);
+						XmlNodeList lis = doc.GetElementsByTagName("Title");
+						outPacket.WriteInt(lis.Count);
 						foreach (XmlNode xn in lis)
 						{
 							XmlElement xe = (XmlElement)xn;
 							short item = short.Parse(xe.GetAttribute("item"));
 							short id = short.Parse(xe.GetAttribute("id"));
 							short sn = short.Parse(xe.GetAttribute("sn"));
-							oPacket.WriteShort(item);
-							oPacket.WriteShort(id);
-							oPacket.WriteShort(sn);
-							oPacket.WriteByte(0);
+							outPacket.WriteShort(item);
+							outPacket.WriteShort(id);
+							outPacket.WriteShort(sn);
+							outPacket.WriteByte(0);
 							List<short> AddList = new List<short>();
 							AddList.Add(item);
 							AddList.Add(id);
 							AddList.Add(sn);
 							FavoriteItemList.Add(AddList);
 						}
-						RouterListener.MySession.Client.Send(oPacket);
+					}
+					else
+					{
+						outPacket.WriteInt(0);
 					}
 				}
+				else
+				{
+					outPacket.WriteInt(0);
+				}
+				RouterListener.MySession.Client.Send(outPacket);
 			}
 		}
 
@@ -156,7 +164,6 @@ namespace RiderData
 									outPacket.WriteShort(short.Parse(theme)); //主题代码
 									outPacket.WriteInt(track); //赛道代码
 									outPacket.WriteByte(0);
-									Console.WriteLine("主题代码：{0}，赛道代码：{1}", theme, track);
 								}
 							}
 							else
