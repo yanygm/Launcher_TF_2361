@@ -1011,7 +1011,7 @@
 	<Kart id='1445' sn='1' />
 	<Kart id='1447' sn='1' />
 	<Kart id='1448' sn='1' />
-	<!--KR/CN-->
+	<!--KR/CN>
 	<Kart id='831' sn='1' />
 	<Kart id='908' sn='1' />
 	<Kart id='913' sn='1' />
@@ -1098,5 +1098,5 @@
 	<Kart id='1493' sn='1' />
 	<Kart id='1494' sn='1' />
 	<Kart id='1495' sn='1' />
-	<Kart id='1496' sn='1' />
+	<Kart id='1496' sn='1' /-->
 </NewKart>
