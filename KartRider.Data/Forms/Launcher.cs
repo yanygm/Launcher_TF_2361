@@ -165,14 +165,6 @@ namespace KartRider
 						streamWriter.Write(Item);
 					}
 				}
-				if (!(File.Exists(@"Profile\RandomTrack.xml")))
-				{
-					string RandomTrack = Resources.RandomTrack;
-					using (StreamWriter streamWriter = new StreamWriter(@"Profile\RandomTrack.xml", false))
-					{
-						streamWriter.Write(RandomTrack);
-					}
-				}
 				if (!(File.Exists(@"Profile\NewKart.xml")))
 				{
 					string NewKart = Resources.NewKart;
