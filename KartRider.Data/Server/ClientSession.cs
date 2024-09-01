@@ -591,7 +591,12 @@ namespace KartRider
 						KartExcData.AddPartsList(Kart, SN, 64, 0, 0, 0);
 						KartExcData.AddPartsList(Kart, SN, 65, 0, 0, 0);
 						KartExcData.AddPartsList(Kart, SN, 66, 0, 0, 0);
+						KartExcData.AddPlantList(Kart, SN, 43, 0);
+						KartExcData.AddPlantList(Kart, SN, 44, 0);
+						KartExcData.AddPlantList(Kart, SN, 45, 0);
+						KartExcData.AddPlantList(Kart, SN, 46, 0);
 						TuneSpec.Use_PartsSpec(Kart, SN);
+						TuneSpec.Use_PlantSpec(Kart, SN);
 						GameSupport.OnDisconnect();
 						MessageBox.Show("已重置该车辆部件，请重新启动游戏！", "重置车辆部件", MessageBoxButtons.OK, MessageBoxIcon.Information);
 						return;
