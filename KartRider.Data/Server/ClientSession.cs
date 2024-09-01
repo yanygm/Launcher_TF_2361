@@ -49,7 +49,7 @@ namespace KartRider
 			{
 				iPacket.Position = 0;
 				uint hash = iPacket.ReadUInt();
-				Console.WriteLine(hash);
+				//Console.WriteLine(hash);
 				if ((hash == Adler32Helper.GenerateAdler32(Encoding.ASCII.GetBytes("PcReportRaidOccur"), 0) ? false : hash != 1340475309))//PqGameReportMyBadUdp
 				{
 					if (hash == Adler32Helper.GenerateAdler32_ASCII("GrRiderTalkPacket", 0) || hash == Adler32Helper.GenerateAdler32_ASCII("PqEnterMagicHatPacket", 0) || hash == Adler32Helper.GenerateAdler32_ASCII("LoPingRequestPacket", 0) || hash == Adler32Helper.GenerateAdler32_ASCII("PqGetRiderQuestUX2ndData", 0) || hash == Adler32Helper.GenerateAdler32_ASCII("PqAddTimeEventInitPacket", 0) || hash == Adler32Helper.GenerateAdler32_ASCII("PqCountdownBoxPeriodPacket", 0) || hash == Adler32Helper.GenerateAdler32_ASCII("PqServerSideUdpBindCheck", 0) || hash == Adler32Helper.GenerateAdler32_ASCII("PqVipGradeCheck", 0))
@@ -360,6 +360,11 @@ namespace KartRider
 						{
 							outPacket.WriteInt(0);
 							outPacket.WriteInt(0);
+							this.Parent.Client.Send(outPacket);
+						}
+						using (OutPacket outPacket = new OutPacket("PcSlaveNotice"))
+						{
+							outPacket.WriteString("單機版完全免費，跑跑資訊站：https://kartinfo.me/thread-9369-1-1.html");
 							this.Parent.Client.Send(outPacket);
 						}
 						return;
