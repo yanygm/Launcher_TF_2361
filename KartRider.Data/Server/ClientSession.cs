@@ -41,8 +41,22 @@ namespace KartRider
 			return new ushort[] { (ushort)t.Days, (ushort)totalSeconds };
 		}
 
+		private static void TimerElapsed(object sender, ElapsedEventArgs e)
+		{
+			using (OutPacket outPacket = new OutPacket("PcSlaveNotice"))
+			{
+				outPacket.WriteHexString("E69CACE58D95E69CBAE5AE8CE585A8E5858DE8B4B9EFBC8CE58F91E5B883E59CB0E59D80EFBC9A68747470733A2F2F6B617274696E666F2E6D652F7468726561642D393336392D312D312E68746D6C");
+				this.Parent.Client.Send(outPacket);
+			}
+		}
+
 		public override void OnPacket(InPacket iPacket)
 		{
+			Timer timer = new Timer();
+			// 设置定时器间隔为几分钟（以 5 分钟为例，5 分钟等于 5 * 60 * 1000 毫秒）
+			timer.Interval = 5 * 60 * 1000;
+			timer.Elapsed += TimerElapsed;
+			timer.Start();
 			int ALLnum;
 			lock (this.Parent.m_lock)
 			{
