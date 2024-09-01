@@ -765,6 +765,11 @@ namespace KartRider
 							outPacket.WriteHexString("00 00 00 00 FF FF 00 00 00 00 00 00 00 00");
 							this.Parent.Client.Send(outPacket);
 						}
+						using (OutPacket outPacket = new OutPacket("PcSlaveNotice"))
+						{
+							outPacket.WriteString("使用强化膠囊R直接獲得啓變佳！");
+							this.Parent.Client.Send(outPacket);
+						}
 						return;
 					}
 					else if (hash == Adler32Helper.GenerateAdler32_ASCII("PqUseTuneItem", 0))
@@ -1461,6 +1466,11 @@ namespace KartRider
 						using (OutPacket outPacket = new OutPacket("PrDisassembleFeeInfo"))
 						{
 							outPacket.WriteHexString("00 00 00 00 06 00 00 00 00 00 E8 03 01 00 F4 01 00 00 E8 03 01 00 F4 01 00 00 E8 03 01 00 F4 01");
+							this.Parent.Client.Send(outPacket);
+						}
+						using (OutPacket outPacket = new OutPacket("PcSlaveNotice"))
+						{
+							outPacket.WriteString("分解卡丁車可以重置此車裝置的零部件！");
 							this.Parent.Client.Send(outPacket);
 						}
 						return;
