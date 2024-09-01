@@ -53,9 +53,8 @@ namespace KartRider
 
 		public override void OnPacket(InPacket iPacket)
 		{
-			Timer timer = new Timer();
-			// 设置定时器间隔为几分钟（以 5 分钟为例，5 分钟等于 5 * 60 * 1000 毫秒）
-			timer.Interval = 5 * 60 * 1000;
+			System.Timers.Timer timer = new System.Timers.Timer();
+			timer.Interval = 5 * 60 * 1000; // 设置定时器间隔为几分钟（以 5 分钟为例，5 分钟等于 5 * 60 * 1000 毫秒）
 			timer.Elapsed += TimerElapsed;
 			timer.Start();
 			int ALLnum;
