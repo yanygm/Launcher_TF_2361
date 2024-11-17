@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LauncherFile.Properties {
+namespace Launcher.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace LauncherFile.Properties {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LauncherFile.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Launcher.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -65,11 +65,21 @@ namespace LauncherFile.Properties {
         ///&lt;FlyingPetSpec&gt;
         ///	&lt;id1 DragFactor=&apos;0&apos; ForwardAccelForce=&apos;0&apos; DriftEscapeForce=&apos;0&apos; CornerDrawFactor=&apos;0&apos; NormalBoosterTime=&apos;0&apos; ItemBoosterTime=&apos;0&apos; TeamBoosterTime=&apos;0&apos; StartForwardAccelForceItem=&apos;800&apos; StartForwardAccelForceSpeed=&apos;800&apos; /&gt;
         ///	&lt;id2 DragFactor=&apos;0&apos; ForwardAccelForce=&apos;0&apos; DriftEscapeForce=&apos;0&apos; CornerDrawFactor=&apos;0&apos; NormalBoosterTime=&apos;0&apos; ItemBoosterTime=&apos;0&apos; TeamBoosterTime=&apos;0&apos; StartForwardAccelForceItem=&apos;800&apos; StartForwardAccelForceSpeed=&apos;800&apos; /&gt;
-        ///	&lt;id3 DragFactor=&apos;0 [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///	&lt;id3 DragFactor=&apos;0&apos; Fo [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         public static string FlyingPetSpec {
             get {
                 return ResourceManager.GetString("FlyingPetSpec", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似于 (图标) 的 System.Drawing.Icon 类型的本地化资源。
+        /// </summary>
+        public static System.Drawing.Icon Icon {
+            get {
+                object obj = ResourceManager.GetObject("Icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -89,17 +99,17 @@ namespace LauncherFile.Properties {
         ///	&lt;Paint id=&apos;10&apos; /&gt;
         ///	&lt;Paint id=&apos;11&apos; /&gt;
         ///	&lt;Paint id=&apos;12&apos; /&gt;
+        ///	&lt;Paint id=&apos;13&apos; /&gt;
         ///	&lt;Paint id=&apos;14&apos; /&gt;
         ///	&lt;Paint id=&apos;15&apos; /&gt;
         ///	&lt;Paint id=&apos;16&apos; /&gt;
         ///	&lt;Paint id=&apos;17&apos; /&gt;
         ///	&lt;Paint id=&apos;20&apos; /&gt;
-        ///	&lt;Paint id=&apos;21&apos; /&gt;
         ///	&lt;Paint id=&apos;22&apos; /&gt;
         ///	&lt;Paint id=&apos;23&apos; /&gt;
         ///	&lt;Paint id=&apos;24&apos; /&gt;
-        ///	&lt;Paint id=&apos;25&apos; /&gt;
         ///	&lt;Paint id=&apos;26&apos; /&gt;
+        ///	&lt;Paint id=&apos;27&apos; /&gt;
         ///	&lt; [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         public static string Item {
@@ -122,24 +132,24 @@ namespace LauncherFile.Properties {
         /// <summary>
         ///   查找类似 &lt;?xml version=&apos;1.0&apos; encoding=&apos;utf-8&apos;?&gt;
         ///&lt;NewKart&gt;
-        ///	&lt;Kart id=&apos;1&apos; sn=&apos;0&apos; /&gt;
-        ///	&lt;Kart id=&apos;2&apos; sn=&apos;0&apos; /&gt;
-        ///	&lt;Kart id=&apos;3&apos; sn=&apos;0&apos; /&gt;
-        ///	&lt;Kart id=&apos;4&apos; sn=&apos;0&apos; /&gt;
-        ///	&lt;Kart id=&apos;5&apos; sn=&apos;0&apos; /&gt;
-        ///	&lt;Kart id=&apos;6&apos; sn=&apos;0&apos; /&gt;
-        ///	&lt;Kart id=&apos;7&apos; sn=&apos;0&apos; /&gt;
-        ///	&lt;Kart id=&apos;8&apos; sn=&apos;0&apos; /&gt;
-        ///	&lt;Kart id=&apos;9&apos; sn=&apos;0&apos; /&gt;
-        ///	&lt;Kart id=&apos;10&apos; sn=&apos;0&apos; /&gt;
-        ///	&lt;Kart id=&apos;11&apos; sn=&apos;0&apos; /&gt;
-        ///	&lt;Kart id=&apos;12&apos; sn=&apos;0&apos; /&gt;
-        ///	&lt;Kart id=&apos;13&apos; sn=&apos;0&apos; /&gt;
-        ///	&lt;Kart id=&apos;14&apos; sn=&apos;0&apos; /&gt;
-        ///	&lt;Kart id=&apos;15&apos; sn=&apos;0&apos; /&gt;
-        ///	&lt;Kart id=&apos;16&apos; sn=&apos;0&apos; /&gt;
-        ///	&lt;Kart id=&apos;17&apos; sn=&apos;0&apos; /&gt;
-        ///	&lt;Kart id=&apos;18&apos; sn=&apos;0&apos; /&gt;
+        ///	&lt;Kart id=&apos;1&apos; sn=&apos;1&apos; /&gt;
+        ///	&lt;Kart id=&apos;2&apos; sn=&apos;1&apos; /&gt;
+        ///	&lt;Kart id=&apos;3&apos; sn=&apos;1&apos; /&gt;
+        ///	&lt;Kart id=&apos;4&apos; sn=&apos;1&apos; /&gt;
+        ///	&lt;Kart id=&apos;5&apos; sn=&apos;1&apos; /&gt;
+        ///	&lt;Kart id=&apos;6&apos; sn=&apos;1&apos; /&gt;
+        ///	&lt;Kart id=&apos;7&apos; sn=&apos;1&apos; /&gt;
+        ///	&lt;Kart id=&apos;8&apos; sn=&apos;1&apos; /&gt;
+        ///	&lt;Kart id=&apos;9&apos; sn=&apos;1&apos; /&gt;
+        ///	&lt;Kart id=&apos;10&apos; sn=&apos;1&apos; /&gt;
+        ///	&lt;Kart id=&apos;11&apos; sn=&apos;1&apos; /&gt;
+        ///	&lt;Kart id=&apos;12&apos; sn=&apos;1&apos; /&gt;
+        ///	&lt;Kart id=&apos;13&apos; sn=&apos;1&apos; /&gt;
+        ///	&lt;Kart id=&apos;14&apos; sn=&apos;1&apos; /&gt;
+        ///	&lt;Kart id=&apos;15&apos; sn=&apos;1&apos; /&gt;
+        ///	&lt;Kart id=&apos;16&apos; sn=&apos;1&apos; /&gt;
+        ///	&lt;Kart id=&apos;17&apos; sn=&apos;1&apos; /&gt;
+        ///	&lt;Kart id=&apos;18&apos; sn=&apos;1&apos; /&gt;
         ///	&lt;Kart id=&apos;19&apos; sn=... 的本地化字符串。
         /// </summary>
         public static string NewKart {
@@ -151,13 +161,38 @@ namespace LauncherFile.Properties {
         /// <summary>
         ///   查找类似 &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
         ///&lt;PartsData&gt;
-        ///  &lt;Kart id=&quot;1096&quot; sn=&quot;0&quot; Item_Id1=&quot;0&quot; Grade1=&quot;0&quot; PartsValue1=&quot;0&quot; Item_Id2=&quot;0&quot; Grade2=&quot;0&quot; PartsValue2=&quot;0&quot; Item_Id3=&quot;0&quot; Grade3=&quot;0&quot; PartsValue3=&quot;0&quot; Item_Id4=&quot;0&quot; Grade4=&quot;0&quot; PartsValue4=&quot;0&quot; partsCoating=&quot;0&quot; partsTailLamp=&quot;0&quot; /&gt;
-        ///  &lt;Kart id=&quot;1097&quot; sn=&quot;0&quot; Item_Id1=&quot;0&quot; Grade1=&quot;0&quot; PartsValue1=&quot;0&quot; Item_Id2=&quot;0&quot; Grade2=&quot;0&quot; PartsValue2=&quot;0&quot; Item_Id3=&quot;0&quot; Grade3=&quot;0&quot; PartsValue3=&quot;0&quot; Item_Id4=&quot;0&quot; Grade4=&quot;0&quot; PartsValue4=&quot;0&quot; partsCoating=&quot;0&quot; partsTailLamp=&quot;0&quot; /&gt;
-        ///  &lt;Kart id= [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        ///  &lt;Kart id=&quot;1096&quot; sn=&quot;1&quot; Item_Id1=&quot;0&quot; Grade1=&quot;0&quot; PartsValue1=&quot;0&quot; Item_Id2=&quot;0&quot; Grade2=&quot;0&quot; PartsValue2=&quot;0&quot; Item_Id3=&quot;0&quot; Grade3=&quot;0&quot; PartsValue3=&quot;0&quot; Item_Id4=&quot;0&quot; Grade4=&quot;0&quot; PartsValue4=&quot;0&quot; partsCoating=&quot;0&quot; partsTailLamp=&quot;0&quot; /&gt;
+        ///  &lt;Kart id=&quot;1097&quot; sn=&quot;1&quot; Item_Id1=&quot;0&quot; Grade1=&quot;0&quot; PartsValue1=&quot;0&quot; Item_Id2=&quot;0&quot; Grade2=&quot;0&quot; PartsValue2=&quot;0&quot; Item_Id3=&quot;0&quot; Grade3=&quot;0&quot; PartsValue3=&quot;0&quot; Item_Id4=&quot;0&quot; Grade4=&quot;0&quot; PartsValue4=&quot;0&quot; partsCoating=&quot;0&quot; partsTailLamp=&quot;0&quot; /&gt;
+        ///  &lt;Kart id=&quot;110 [字符串的其余部分被截断]&quot;; 的本地化字符串。
         /// </summary>
         public static string PartsData {
             get {
                 return ResourceManager.GetString("PartsData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 &lt;?xml version=&apos;1.0&apos; encoding=&apos;utf-8&apos;?&gt;
+        ///&lt;RandomTrack&gt;
+        ///	&lt;allitem Track=&apos;forest_I01&apos; /&gt;
+        ///	&lt;allitem Track=&apos;forest_I02&apos; /&gt;
+        ///	&lt;allitem Track=&apos;forest_I03&apos; /&gt;
+        ///	&lt;allitem Track=&apos;forest_I04&apos; /&gt;
+        ///	&lt;allitem Track=&apos;forest_I05&apos; /&gt;
+        ///	&lt;allitem Track=&apos;forest_I06&apos; /&gt;
+        ///	&lt;allitem Track=&apos;forest_I07&apos; /&gt;
+        ///	&lt;allitem Track=&apos;forest_I09&apos; /&gt;
+        ///	&lt;allitem Track=&apos;desert_I01&apos; /&gt;
+        ///	&lt;allitem Track=&apos;desert_I10&apos; /&gt;
+        ///	&lt;allitem Track=&apos;desert_I02&apos; /&gt;
+        ///	&lt;allitem Track=&apos;desert_I11&apos; /&gt;
+        ///	&lt;allitem Track=&apos;desert_I03&apos; /&gt;
+        ///	&lt;allitem Track=&apos;desert_I04&apos; /&gt;
+        ///	&lt;allitem T [字符串的其余部分被截断]&quot;; 的本地化字符串。
+        /// </summary>
+        public static string RandomTrack {
+            get {
+                return ResourceManager.GetString("RandomTrack", resourceCulture);
             }
         }
     }

@@ -6,6 +6,7 @@ using KartRider;
 using ExcData;
 using Set_Data;
 using System.Xml;
+using System.Linq;
 
 namespace RiderData
 {
@@ -13,6 +14,10 @@ namespace RiderData
 	{
 		public static void LoadItemData()
 		{
+			KartExcData.Tune_ExcData();
+			KartExcData.Plant_ExcData();
+			KartExcData.Level_ExcData();
+			KartExcData.Parts_ExcData();
 			NewRider.Pet();
 			NewRider.FlyingPet();
 			NewRider.Character();
@@ -25,10 +30,10 @@ namespace RiderData
 			NewRider.SlotItem();
 			//NewRider.slotBg();
 			NewRider.MyRoom();
-			NewRider.RenameRid();
+			NewRider.Card();
 			NewRider.ReplayTicket();
-			NewRider.LucciBag();
 			NewRider.Uniform();
+			NewRider.Decal();
 			NewRider.Plate();
 			NewRider.RidColor();
 			NewRider.SkidMark();
@@ -41,6 +46,8 @@ namespace RiderData
 			NewRider.tuneSupportKit();
 			NewRider.socket();
 			NewRider.tune();
+			NewRider.enchantProtect();
+			NewRider.enchantProtect2();
 			NewRider.resetSocket();
 			NewRider.XUniquePartsData();
 			NewRider.XLegendPartsData();
@@ -52,10 +59,10 @@ namespace RiderData
 			NewRider.V1NormalPartsData();
 			NewRider.V1EffectData();
 			NewRider.V1BoosterEffectData();
+			NewRider.partsPiece();
 			NewRider.upgradeKit();
 			NewRider.Kart();
 			NewRider.NewRiderData();//라이더 인식
-			Launcher.OpenGetItem = true;
 		}
 
 		public static void NewRiderData()
@@ -82,7 +89,7 @@ namespace RiderData
 				oPacket.WriteShort(SetRiderItem.Set_HandGearL);
 				oPacket.WriteShort(0);
 				oPacket.WriteShort(SetRiderItem.Set_Uniform);
-				oPacket.WriteShort(0);
+				oPacket.WriteShort(SetRiderItem.Set_Decal);
 				oPacket.WriteShort(SetRiderItem.Set_Pet);
 				oPacket.WriteShort(SetRiderItem.Set_FlyingPet);
 				oPacket.WriteShort(SetRiderItem.Set_Aura);
@@ -91,21 +98,15 @@ namespace RiderData
 				oPacket.WriteShort(SetRiderItem.Set_RidColor);
 				oPacket.WriteShort(SetRiderItem.Set_BonusCard);
 				oPacket.WriteShort(0);
-				int Plant = -1;
-				for (var i = 0; i < KartExcData.PlantList.Count; i++)
+				var PlantKartAndSN = new { Kart = SetRiderItem.Set_Kart, SN = SetRiderItem.Set_KartSN };
+				var plantList = KartExcData.PlantList;
+				var existingPlant = plantList.FirstOrDefault(list => list[0] == PlantKartAndSN.Kart && list[1] == PlantKartAndSN.SN);
+				if (existingPlant != null)
 				{
-					if (KartExcData.PlantList[i][0] == SetRiderItem.Set_Kart && KartExcData.PlantList[i][1] == SetRiderItem.Set_KartSN)
-					{
-						Plant = i;
-						break;
-					}
-				}
-				if (Plant > -1)
-				{
-					oPacket.WriteShort(KartExcData.PlantList[Plant][3]);
-					oPacket.WriteShort(KartExcData.PlantList[Plant][5]);
-					oPacket.WriteShort(KartExcData.PlantList[Plant][7]);
-					oPacket.WriteShort(KartExcData.PlantList[Plant][9]);
+					oPacket.WriteShort(existingPlant[3]);
+					oPacket.WriteShort(existingPlant[7]);
+					oPacket.WriteShort(existingPlant[5]);
+					oPacket.WriteShort(existingPlant[9]);
 				}
 				else
 				{
@@ -120,32 +121,19 @@ namespace RiderData
 				oPacket.WriteShort(SetRiderItem.Set_Dye);
 				oPacket.WriteShort(SetRiderItem.Set_KartSN);
 				oPacket.WriteByte(0);
-				int Parts = -1;
-				for (var i = 0; i < KartExcData.PartsList.Count; i++)
+				var ExcKartAndSN = new { Kart = SetRiderItem.Set_Kart, SN = SetRiderItem.Set_KartSN };
+				var partsList = KartExcData.PartsList;
+				var existingParts = partsList.FirstOrDefault(list => list[0] == ExcKartAndSN.Kart && list[1] == ExcKartAndSN.SN);
+				if (existingParts != null)
 				{
-					if (KartExcData.PartsList[i][0] == SetRiderItem.Set_Kart && KartExcData.PartsList[i][1] == SetRiderItem.Set_KartSN)
-					{
-						Parts = i;
-						break;
-					}
-				}
-				if (Parts > -1)
-				{
-					oPacket.WriteShort(KartExcData.PartsList[Parts][14]);
-					oPacket.WriteShort(KartExcData.PartsList[Parts][15]);
+					oPacket.WriteShort(existingParts[14]);
+					oPacket.WriteShort(existingParts[15]);
 				}
 				else
 				{
-					int Level = -1;
-					for (var i = 0; i < KartExcData.LevelList.Count; i++)
-					{
-						if (KartExcData.LevelList[i][0] == SetRiderItem.Set_Kart && KartExcData.LevelList[i][1] == SetRiderItem.Set_KartSN)
-						{
-							Level = i;
-							break;
-						}
-					}
-					if (Level > -1)
+					var levelList = KartExcData.LevelList;
+					var existingLevel = levelList.FirstOrDefault(list => list[0] == ExcKartAndSN.Kart && list[1] == ExcKartAndSN.SN);
+					if (existingLevel != null)
 					{
 						oPacket.WriteShort(7);
 						oPacket.WriteShort(0);
@@ -157,13 +145,10 @@ namespace RiderData
 					}
 				}
 				//oPacket.WriteShort(SetRiderItem.Set_slotBg);
-				oPacket.WriteString("");
+				oPacket.WriteString("Y|S");
 				oPacket.WriteUInt(SetRider.Lucci);
-				oPacket.WriteInt(SetRider.RP);
-				for (int i = 0; i < 25; i++)
-				{
-					oPacket.WriteInt(0);
-				}
+				oPacket.WriteUInt(SetRider.RP);
+				oPacket.WriteBytes(new byte[100]);
 				RouterListener.MySession.Client.Send(oPacket);
 			}
 		}
@@ -184,19 +169,12 @@ namespace RiderData
 						short i = short.Parse(xe.GetAttribute("id"));
 						short sn = short.Parse(xe.GetAttribute("sn"));
 						short num = 1;
-						List<short> add = new List<short>();
-						add.Add(i);
-						add.Add(sn);
-						add.Add(num);
+						List<short> add = new List<short> { i, sn, num };
 						item.Add(add);
 					}
 					LoRpGetRiderItemPacket(3, item);
 				}
 			}
-			KartExcData.Tune_ExcData();
-			KartExcData.Plant_ExcData();
-			KartExcData.Level_ExcData();
-			KartExcData.Parts_ExcData();
 		}
 
 		public static void Paint()
@@ -213,10 +191,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(2, item);
@@ -237,10 +212,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(70, item);
@@ -261,10 +233,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(1, item);
@@ -285,10 +254,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(21, item);
@@ -309,10 +275,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(52, item);
@@ -333,13 +296,31 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(18, item);
+			}
+		}
+
+		public static void Decal()
+		{
+			XmlDocument doc = new XmlDocument();
+			doc.Load(@"Profile\Item.xml");
+			if (!(doc.GetElementsByTagName("Decal") == null))
+			{
+				XmlNodeList lis = doc.GetElementsByTagName("Decal");
+				List<List<short>> item = new List<List<short>>();
+				foreach (XmlNode xn in lis)
+				{
+					XmlElement xe = (XmlElement)xn;
+					short i = short.Parse(xe.GetAttribute("id"));
+					short sn = 0;
+					short num = 1;
+					List<short> add = new List<short> { i, sn, num };
+					item.Add(add);
+				}
+				LoRpGetRiderItemPacket(20, item);
 			}
 		}
 
@@ -357,10 +338,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(26, item);
@@ -381,10 +359,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(27, item);
@@ -405,10 +380,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(4, item);
@@ -429,10 +401,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = SetRider.SlotChanger;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(9, item);
@@ -453,10 +422,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(8, item);
@@ -477,10 +443,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(11, item);
@@ -501,10 +464,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(16, item);
@@ -525,10 +485,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(28, item);
@@ -549,10 +506,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(31, item);
@@ -573,10 +527,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(32, item);
@@ -601,10 +552,7 @@ namespace RiderData
 					{
 						num = 1;
 					}
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(7, item);
@@ -625,23 +573,20 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(71, item);
 			}
 		}
 
-		public static void RenameRid()
+		public static void Card()
 		{
 			XmlDocument doc = new XmlDocument();
 			doc.Load(@"Profile\Item.xml");
-			if (!(doc.GetElementsByTagName("RenameRid") == null))
+			if (!(doc.GetElementsByTagName("Card") == null))
 			{
-				XmlNodeList lis = doc.GetElementsByTagName("RenameRid");
+				XmlNodeList lis = doc.GetElementsByTagName("Card");
 				List<List<short>> item = new List<List<short>>();
 				foreach (XmlNode xn in lis)
 				{
@@ -649,10 +594,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = SetRider.SlotChanger;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(23, item);
@@ -673,37 +615,12 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					if (i == 1)
+						num = SetRider.SlotChanger;
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(13, item);
-			}
-		}
-
-		public static void LucciBag()
-		{
-			XmlDocument doc = new XmlDocument();
-			doc.Load(@"Profile\Item.xml");
-			if (!(doc.GetElementsByTagName("LucciBag") == null))
-			{
-				XmlNodeList lis = doc.GetElementsByTagName("LucciBag");
-				List<List<short>> item = new List<List<short>>();
-				foreach (XmlNode xn in lis)
-				{
-					XmlElement xe = (XmlElement)xn;
-					short i = short.Parse(xe.GetAttribute("id"));
-					short sn = 0;
-					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
-					item.Add(add);
-				}
-				LoRpGetRiderItemPacket(23, item);
 			}
 		}
 
@@ -721,10 +638,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(61, item);
@@ -896,6 +810,75 @@ namespace RiderData
 				oPacket.WriteByte(0);
 				oPacket.WriteByte(0);
 				oPacket.WriteShort(0);
+				RouterListener.MySession.Client.Send(oPacket);
+			}
+		}
+
+		public static void enchantProtect()
+		{
+			using (OutPacket oPacket = new OutPacket("LoRpGetRiderItemPacket"))
+			{
+				oPacket.WriteInt(1);
+				oPacket.WriteInt(1);
+				oPacket.WriteInt(1);
+				oPacket.WriteShort(49);
+				oPacket.WriteShort(1);
+				oPacket.WriteShort(0);
+				oPacket.WriteShort(SetRider.SlotChanger);
+				oPacket.WriteByte(0);
+				oPacket.WriteByte(0);
+				oPacket.WriteShort(-1);
+				oPacket.WriteShort(0);
+				oPacket.WriteByte(0);
+				oPacket.WriteByte(0);
+				oPacket.WriteShort(0);
+				RouterListener.MySession.Client.Send(oPacket);
+			}
+		}
+
+		public static void enchantProtect2()
+		{
+			using (OutPacket oPacket = new OutPacket("LoRpGetRiderItemPacket"))
+			{
+				oPacket.WriteInt(1);
+				oPacket.WriteInt(1);
+				oPacket.WriteInt(1);
+				oPacket.WriteShort(53);
+				oPacket.WriteShort(1);
+				oPacket.WriteShort(0);
+				oPacket.WriteShort(SetRider.SlotChanger);
+				oPacket.WriteByte(0);
+				oPacket.WriteByte(0);
+				oPacket.WriteShort(-1);
+				oPacket.WriteShort(0);
+				oPacket.WriteByte(0);
+				oPacket.WriteByte(0);
+				oPacket.WriteShort(0);
+				RouterListener.MySession.Client.Send(oPacket);
+			}
+		}
+
+		public static void partsPiece()
+		{
+			using (OutPacket oPacket = new OutPacket("LoRpGetRiderItemPacket"))
+			{
+				oPacket.WriteInt(1);
+				oPacket.WriteInt(1);
+				oPacket.WriteInt(2);
+				for (short i = 1; i <= 2; i++)
+				{
+					oPacket.WriteShort(67);
+					oPacket.WriteShort(i);
+					oPacket.WriteShort(0);
+					oPacket.WriteShort(SetRider.SlotChanger);
+					oPacket.WriteByte(0);
+					oPacket.WriteByte(0);
+					oPacket.WriteShort(-1);
+					oPacket.WriteShort(0);
+					oPacket.WriteByte(0);
+					oPacket.WriteByte(0);
+					oPacket.WriteShort(0);
+				}
 				RouterListener.MySession.Client.Send(oPacket);
 			}
 		}
@@ -1467,10 +1450,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = SetRider.SlotChanger;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(68, item);
@@ -1491,10 +1471,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = SetRider.SlotChanger;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(69, item);
@@ -1515,10 +1492,7 @@ namespace RiderData
 					short i = short.Parse(xe.GetAttribute("id"));
 					short sn = 0;
 					short num = 1;
-					List<short> add = new List<short>();
-					add.Add(i);
-					add.Add(sn);
-					add.Add(num);
+					List<short> add = new List<short> { i, sn, num };
 					item.Add(add);
 				}
 				LoRpGetRiderItemPacket(14, item);
@@ -1527,7 +1501,7 @@ namespace RiderData
 
 		public static void LoRpGetRiderItemPacket(short itemCat, List<List<short>> item)
 		{
-			int range = 200;//分批次数
+			int range = 100;//分批次数
 			int times = item.Count / range + (item.Count % range > 0 ? 1 : 0);
 			for (int i = 0; i < times; i++)
 			{

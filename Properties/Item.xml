@@ -51,6 +51,7 @@
 	<Paint id='63' />
 	<Paint id='64' />
 	<Paint id='69' />
+	<Paint id='71' />
 	<Paint id='74' />
 	<Paint id='75' />
 	<Paint id='80' />
@@ -67,8 +68,10 @@
 	<Paint id='91' />
 	<Paint id='92' />
 	<Paint id='93' />
+	<Paint id='94' />
 	<Paint id='95' />
 	<Paint id='96' />
+	<Paint id='97' />
 	<!--item itemCatId='70' itemName='染色剂'-->
 	<Dye id='1' />
 	<Dye id='2' />
@@ -120,6 +123,7 @@
 	<Dye id='63' />
 	<Dye id='64' />
 	<Dye id='69' />
+	<Dye id='71' />
 	<Dye id='74' />
 	<Dye id='75' />
 	<Dye id='80' />
@@ -136,8 +140,10 @@
 	<Dye id='91' />
 	<Dye id='92' />
 	<Dye id='93' />
+	<Dye id='94' />
 	<Dye id='95' />
 	<Dye id='96' />
+	<Dye id='97' />
 	<!--item itemCatId='1' itemName='角色'-->
 	<Character id='1' />
 	<Character id='2' />
@@ -176,9 +182,12 @@
 	<Character id='37' />
 	<Character id='44' />
 	<Character id='46' />
+	<Character id='47' />
+	<Character id='48' />
 	<Character id='49' />
 	<Character id='50' />
 	<Character id='51' />
+	<Character id='52' />
 	<Character id='53' />
 	<Character id='54' />
 	<Character id='55' />
@@ -188,12 +197,14 @@
 	<Character id='60' />
 	<Character id='61' />
 	<Character id='62' />
+	<Character id='63' />
 	<Character id='64' />
 	<Character id='65' />
 	<Character id='66' />
 	<Character id='67' />
 	<Character id='68' />
 	<Character id='69' />
+	<Character id='71' />
 	<Character id='72' />
 	<Character id='73' />
 	<Character id='74' />
@@ -201,10 +212,12 @@
 	<Character id='76' />
 	<Character id='77' />
 	<Character id='78' />
+	<Character id='79' />
 	<Character id='80' />
 	<Character id='81' />
 	<Character id='82' />
 	<Character id='83' />
+	<Character id='85' />
 	<Character id='86' />
 	<Character id='87' />
 	<Character id='88' />
@@ -236,6 +249,7 @@
 	<Character id='121' />
 	<Character id='122' />
 	<Character id='125' />
+	<Character id='126' />
 	<Character id='127' />
 	<Character id='129' />
 	<Character id='131' />
@@ -261,6 +275,7 @@
 	<Character id='158' />
 	<Character id='160' />
 	<Character id='161' />
+	<Character id='162' />
 	<Character id='163' />
 	<Character id='177' />
 	<Character id='178' />
@@ -278,7 +293,9 @@
 	<Character id='198' />
 	<Character id='199' />
 	<Character id='200' />
+	<Character id='201' />
 	<Character id='202' />
+	<Character id='203' />
 	<Character id='204' />
 	<Character id='205' />
 	<Character id='206' />
@@ -327,6 +344,7 @@
 	<Character id='253' />
 	<Character id='254' />
 	<Character id='255' />
+	<Character id='256' />
 	<Character id='257' />
 	<Character id='258' />
 	<Character id='259' />
@@ -383,6 +401,7 @@
 	<Character id='319' />
 	<Character id='320' />
 	<Character id='321' />
+	<Character id='322' />
 	<Character id='324' />
 	<Character id='325' />
 	<Character id='326' />
@@ -392,10 +411,17 @@
 	<Character id='330' />
 	<Character id='331' />
 	<Character id='332' />
+	<Character id='340' />
+	<Character id='341' />
+	<Character id='342' />
+	<Character id='343' />
+	<Character id='344' />
+	<Character id='345' />
 	<Character id='346' />
 	<Character id='347' />
 	<Character id='348' />
 	<Character id='349' />
+	<Character id='350' />
 	<Character id='351' />
 	<Character id='352' />
 	<Character id='353' />
@@ -411,6 +437,8 @@
 	<Character id='363' />
 	<Character id='364' />
 	<Character id='365' />
+	<Character id='366' />
+	<Character id='367' />
 	<Character id='368' />
 	<Character id='369' />
 	<Character id='370' />
@@ -436,6 +464,13 @@
 	<Character id='399' />
 	<Character id='400' />
 	<Character id='401' />
+	<Character id='403' />
+	<Character id='404' />
+	<Character id='405' />
+	<Character id='406' />
+	<Character id='407' />
+	<Character id='408' />
+	<Character id='409' />
 	<Character id='411' />
 	<Character id='413' />
 	<Character id='417' />
@@ -446,7 +481,46 @@
 	<Character id='422' />
 	<Character id='424' />
 	<Character id='425' />
+	<Character id='426' />
+	<Character id='427' />
+	<Character id='428' />
+	<Character id='429' />
+	<Character id='430' />
+	<Character id='431' />
+	<Character id='432' />
+	<Character id='433' />
+	<Character id='434' />
+	<Character id='435' />
+	<Character id='436' />
+	<Character id='437' />
+	<Character id='438' />
+	<Character id='439' />
+	<Character id='445' />
+	<Character id='446' />
+	<Character id='447' />
+	<Character id='448' />
+	<Character id='449' />
+	<Character id='450' />
+	<Character id='451' />
+	<Character id='452' />
+	<Character id='453' />
+	<Character id='454' />
+	<Character id='455' />
+	<Character id='456' />
+	<Character id='457' />
+	<Character id='458' />
+	<Character id='459' />
+	<Character id='460' />
+	<Character id='461' />
+	<Character id='462' />
+	<Character id='463' />
+	<Character id='464' />
+	<Character id='465' />
+	<Character id='466' />
+	<Character id='468' />
+	<Character id='469' />
 	<!--item itemCatId='21' itemName='宠物'-->
+	<Pet id='30000' />
 	<Pet id='30001' />
 	<Pet id='30002' />
 	<Pet id='30003' />
@@ -500,15 +574,20 @@
 	<Pet id='47' />
 	<Pet id='48' />
 	<Pet id='49' />
+	<Pet id='50' />
 	<Pet id='51' />
 	<Pet id='52' />
 	<Pet id='53' />
 	<Pet id='54' />
 	<Pet id='55' />
+	<Pet id='56' />
 	<Pet id='57' />
+	<Pet id='58' />
+	<Pet id='59' />
 	<Pet id='60' />
 	<Pet id='61' />
 	<Pet id='62' />
+	<Pet id='63' />
 	<Pet id='64' />
 	<Pet id='65' />
 	<Pet id='66' />
@@ -517,22 +596,29 @@
 	<Pet id='69' />
 	<Pet id='70' />
 	<Pet id='71' />
+	<Pet id='72' />
 	<Pet id='73' />
 	<Pet id='74' />
 	<Pet id='75' />
 	<Pet id='76' />
+	<Pet id='77' />
 	<Pet id='78' />
+	<Pet id='79' />
 	<Pet id='80' />
 	<Pet id='81' />
 	<Pet id='82' />
 	<Pet id='83' />
 	<Pet id='84' />
+	<Pet id='85' />
 	<Pet id='86' />
 	<Pet id='87' />
+	<Pet id='88' />
 	<Pet id='89' />
 	<Pet id='90' />
+	<Pet id='91' />
 	<Pet id='93' />
 	<Pet id='94' />
+	<Pet id='95' />
 	<Pet id='96' />
 	<Pet id='97' />
 	<Pet id='98' />
@@ -542,7 +628,9 @@
 	<Pet id='102' />
 	<Pet id='103' />
 	<Pet id='104' />
+	<Pet id='105' />
 	<Pet id='106' />
+	<Pet id='107' />
 	<Pet id='108' />
 	<Pet id='109' />
 	<Pet id='110' />
@@ -557,6 +645,7 @@
 	<Pet id='119' />
 	<Pet id='120' />
 	<Pet id='121' />
+	<Pet id='122' />
 	<Pet id='124' />
 	<Pet id='125' />
 	<Pet id='126' />
@@ -594,11 +683,28 @@
 	<Pet id='159' />
 	<Pet id='160' />
 	<Pet id='161' />
+	<Pet id='162' />
 	<Pet id='163' />
+	<Pet id='164' />
+	<Pet id='165' />
 	<Pet id='166' />
 	<Pet id='167' />
+	<Pet id='168' />
+	<Pet id='169' />
+	<Pet id='170' />
 	<Pet id='171' />
 	<Pet id='172' />
+	<Pet id='173' />
+	<Pet id='174' />
+	<Pet id='175' />
+	<Pet id='176' />
+	<Pet id='177' />
+	<Pet id='178' />
+	<Pet id='179' />
+	<Pet id='180' />
+	<Pet id='181' />
+	<Pet id='182' />
+	<Pet id='183' />
 	<!--item itemCatId='52' itemName='飞行宠物'-->
 	<FlyingPet id='1' />
 	<FlyingPet id='2' />
@@ -658,6 +764,7 @@
 	<FlyingPet id='56' />
 	<FlyingPet id='57' />
 	<FlyingPet id='58' />
+	<FlyingPet id='60' />
 	<FlyingPet id='61' />
 	<FlyingPet id='62' />
 	<FlyingPet id='63' />
@@ -674,7 +781,30 @@
 	<FlyingPet id='74' />
 	<FlyingPet id='75' />
 	<FlyingPet id='77' />
+	<FlyingPet id='78' />
+	<FlyingPet id='79' />
 	<FlyingPet id='80' />
+	<FlyingPet id='81' />
+	<FlyingPet id='82' />
+	<FlyingPet id='83' />
+	<FlyingPet id='84' />
+	<FlyingPet id='85' />
+	<FlyingPet id='86' />
+	<FlyingPet id='87' />
+	<FlyingPet id='88' />
+	<FlyingPet id='89' />
+	<FlyingPet id='90' />
+	<FlyingPet id='91' />
+	<FlyingPet id='92' />
+	<FlyingPet id='93' />
+	<FlyingPet id='94' />
+	<FlyingPet id='95' />
+	<FlyingPet id='96' />
+	<FlyingPet id='97' />
+	<FlyingPet id='98' />
+	<FlyingPet id='99' />
+	<FlyingPet id='100' />
+	<FlyingPet id='101' />
 	<!--item itemCatId='18' itemName='服饰'-->
 	<Uniform id='30000' />
 	<Uniform id='12' />
@@ -713,6 +843,22 @@
 	<Uniform id='106' />
 	<Uniform id='107' />
 	<Uniform id='108' />
+	<Uniform id='109' />
+	<Uniform id='110' />
+	<Uniform id='111' />
+	<Uniform id='112' />
+	<!--item itemCatId='20' itemName='贴花'-->
+	<Decal id='1' />
+	<Decal id='2' />
+	<Decal id='3' />
+	<Decal id='6' />
+	<Decal id='8' />
+	<Decal id='10' />
+	<Decal id='17' />
+	<Decal id='18' />
+	<Decal id='19' />
+	<Decal id='24' />
+	<Decal id='25' />
 	<!--item itemCatId='26' itemName='炫光'-->
 	<Aura id='30000' />
 	<Aura id='1' />
@@ -814,6 +960,18 @@
 	<Aura id='111' />
 	<Aura id='112' />
 	<Aura id='113' />
+	<Aura id='114' />
+	<Aura id='115' />
+	<Aura id='116' />
+	<Aura id='117' />
+	<Aura id='118' />
+	<Aura id='119' />
+	<Aura id='120' />
+	<Aura id='121' />
+	<Aura id='122' />
+	<Aura id='123' />
+	<Aura id='124' />
+	<Aura id='125' />
 	<!--item itemCatId='27' itemName='印迹'-->
 	<SkidMark id='30001' />
 	<SkidMark id='1' />
@@ -850,8 +1008,13 @@
 	<SkidMark id='38' />
 	<SkidMark id='39' />
 	<SkidMark id='40' />
+	<SkidMark id='41' />
 	<SkidMark id='44' />
 	<SkidMark id='45' />
+	<SkidMark id='46' />
+	<SkidMark id='47' />
+	<SkidMark id='48' />
+	<SkidMark id='49' />
 	<!--item itemCatId='4' itemName='车牌'-->
 	<Plate id='1' />
 	<Plate id='2' />
@@ -975,6 +1138,9 @@
 	<Plate id='238' />
 	<Plate id='240' />
 	<Plate id='243' />
+	<Plate id='244' />
+	<Plate id='245' />
+	<Plate id='246' />
 	<!--item itemCatId='9' itemName='气球'-->
 	<Balloon id='30001' />
 	<Balloon id='30002' />
@@ -1714,6 +1880,61 @@
 	<Balloon id='1352' />
 	<Balloon id='1353' />
 	<Balloon id='1355' />
+	<Balloon id='1356' />
+	<Balloon id='1357' />
+	<Balloon id='1358' />
+	<Balloon id='1359' />
+	<Balloon id='1360' />
+	<Balloon id='1361' />
+	<Balloon id='1362' />
+	<Balloon id='1363' />
+	<Balloon id='1364' />
+	<Balloon id='1365' />
+	<Balloon id='1366' />
+	<Balloon id='1367' />
+	<Balloon id='1368' />
+	<Balloon id='1369' />
+	<Balloon id='1370' />
+	<Balloon id='1371' />
+	<Balloon id='1372' />
+	<Balloon id='1373' />
+	<Balloon id='1374' />
+	<Balloon id='1375' />
+	<Balloon id='1376' />
+	<Balloon id='1377' />
+	<Balloon id='1378' />
+	<Balloon id='1379' />
+	<Balloon id='1380' />
+	<Balloon id='1381' />
+	<Balloon id='1382' />
+	<Balloon id='1383' />
+	<Balloon id='1384' />
+	<Balloon id='1385' />
+	<Balloon id='1386' />
+	<Balloon id='1387' />
+	<Balloon id='1388' />
+	<Balloon id='1389' />
+	<Balloon id='1390' />
+	<Balloon id='1391' />
+	<Balloon id='1392' />
+	<Balloon id='1393' />
+	<Balloon id='1394' />
+	<Balloon id='1395' />
+	<Balloon id='1396' />
+	<Balloon id='1397' />
+	<Balloon id='1398' />
+	<Balloon id='1399' />
+	<Balloon id='1400' />
+	<Balloon id='1401' />
+	<Balloon id='1402' />
+	<Balloon id='1403' />
+	<Balloon id='1404' />
+	<Balloon id='1405' />
+	<Balloon id='1406' />
+	<Balloon id='1407' />
+	<Balloon id='1408' />
+	<Balloon id='1409' />
+	<Balloon id='1410' />
 	<!--item itemCatId='8' itemName='护目镜'-->
 	<Goggle id='30000' />
 	<Goggle id='30001' />
@@ -1906,6 +2127,12 @@
 	<Goggle id='231' />
 	<Goggle id='233' />
 	<Goggle id='236' />
+	<Goggle id='237' />
+	<Goggle id='238' />
+	<Goggle id='239' />
+	<Goggle id='240' />
+	<Goggle id='241' />
+	<Goggle id='242' />
 	<!--item itemCatId='11' itemName='头饰'-->
 	<HeadBand id='30002' />
 	<HeadBand id='30003' />
@@ -2331,6 +2558,20 @@
 	<HeadBand id='635' />
 	<HeadBand id='637' />
 	<HeadBand id='638' />
+	<HeadBand id='639' />
+	<HeadBand id='640' />
+	<HeadBand id='641' />
+	<HeadBand id='642' />
+	<HeadBand id='643' />
+	<HeadBand id='644' />
+	<HeadBand id='645' />
+	<HeadBand id='646' />
+	<HeadBand id='647' />
+	<HeadBand id='648' />
+	<HeadBand id='649' />
+	<HeadBand id='650' />
+	<HeadBand id='651' />
+	<HeadBand id='652' />
 	<!--item itemCatId='16' itemName='手杖'-->
 	<HandGearL id='30001' />
 	<HandGearL id='30002' />
@@ -2619,6 +2860,15 @@
 	<HandGearL id='429' />
 	<HandGearL id='430' />
 	<HandGearL id='431' />
+	<HandGearL id='432' />
+	<HandGearL id='433' />
+	<HandGearL id='434' />
+	<HandGearL id='435' />
+	<HandGearL id='436' />
+	<HandGearL id='437' />
+	<HandGearL id='438' />
+	<HandGearL id='439' />
+	<HandGearL id='440' />
 	<!--item itemCatId='28' itemName='小屋背景'-->
 	<MyRoom id='30000' />
 	<MyRoom id='2' />
@@ -2647,7 +2897,14 @@
 	<MyRoom id='38' />
 	<MyRoom id='41' />
 	<MyRoom id='42' />
+	<MyRoom id='43' />
+	<MyRoom id='44' />
+	<MyRoom id='51' />
 	<MyRoom id='52' />
+	<MyRoom id='53' />
+	<MyRoom id='54' />
+	<MyRoom id='55' />
+	<MyRoom id='56' />
 	<!--item itemCatId='31' itemName='名字喷漆'-->
 	<RidColor id='1' />
 	<RidColor id='2' />
@@ -2664,14 +2921,12 @@
 	<SlotItem id='1' />
 	<SlotItem id='2' />
 	<!--item itemCatId='71' itemName='车手栏背景'-->
-	<slotBg id='2' />
-	<slotBg id='3' />
-	<!--item itemCatId='23' itemName='更名卡'-->
-	<RenameRid id='1' />
+	<!--item itemCatId='23' itemName='卡片'-->
+	<Card id='1' />
+	<Card id='3' />
+	<Card id='89' />
 	<!--item itemCatId='13' itemName='回放观赏券'-->
 	<ReplayTicket id='1' />
-	<!--item itemCatId='23' itemName='金币扩充包'-->
-	<LucciBag id='3' />
 	<!--item itemCatId='61' itemName='计程车仪表'-->
 	<Tachometer id='1' />
 	<!--item itemCatId='68' itemName='车膜'-->
@@ -2695,6 +2950,8 @@
 	<V1EffectData id='18' />
 	<V1EffectData id='19' />
 	<V1EffectData id='20' />
+	<V1EffectData id='21' />
+	<V1EffectData id='22' />
 	<!--item itemCatId='69' itemName='车灯部件'-->
 	<V1BoosterEffectData id='1' />
 	<V1BoosterEffectData id='2' />

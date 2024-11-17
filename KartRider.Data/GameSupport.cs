@@ -8,20 +8,20 @@ namespace KartRider
 	{
 		public static void PcFirstMessage()
 		{
-			uint first_val = 3059596768;
-			uint second_val = 1772034572;
+			uint first_val = 3595571486;
+			uint second_val = 2168420743;
 			using (OutPacket outPacket = new OutPacket("PcFirstMessage"))
 			{
 				outPacket.WriteUShort(SessionGroup.usLocale);
 				outPacket.WriteUShort(1);
 				outPacket.WriteUShort(SetGameOption.Version);
-				outPacket.WriteString("http://tw.cdnpatch.kartrider.beanfun.com/kartrider/");
+				outPacket.WriteString("http://kartupdate.tiancity.cn/patch/ATYGSTKPEWUHSKA");
 				outPacket.WriteUInt(first_val);
 				outPacket.WriteUInt(second_val);
 				outPacket.WriteByte(SessionGroup.nClientLoc);
-				outPacket.WriteString("DI5gSCYZrEcZjR4fma5gSevvLBGSzKMoOPl7ZHDmfgA=");
-				outPacket.WriteHexString("00 00 00 00 00 00 00 00 01 00 01 00 00 00 00 00 B0 49 51 19 00 00 00 00 08 C0 70 0E 00 00 00");
-				outPacket.WriteString("bLV2VEcHkS8SrZVuPwitWN+I2851xwVEr+UBEzcYz+8=");
+				outPacket.WriteString("+B1K8NAOvJd3cXFieRWTkRNj2rlv2qVmALSUdXFpNl0=");
+				outPacket.WriteHexString("00 00 00 00 00 00 00 00 0F 00 00 00 00 00 00 00 00 2E 31 2E 31 37 2E 36 00 00 00 00 00 00 00");
+				outPacket.WriteString("TwKtPFLx+3AuKg5PFa021r3hKyFDK2sFBzQJJCI26wA=");
 				RouterListener.MySession.Client.Send(outPacket);
 			}
 			RouterListener.MySession.Client._RIV = first_val ^ second_val;
@@ -190,66 +190,11 @@ namespace KartRider
 
 		public static void PrQuestUX2ndPacket()
 		{
-			//questGroupIndex='2' seasonId='17' kartPassSetId='1' unk='0' id='13'
-			//EX) 217010013
-			int NormalQuest = 9;
-			int KartPassQuest = 0;
-			int All_Quest = NormalQuest + KartPassQuest;
 			using (OutPacket outPacket = new OutPacket("PrQuestUX2ndPacket"))
 			{
 				outPacket.WriteInt(1);
 				outPacket.WriteInt(1);
-				outPacket.WriteInt(All_Quest);
-				for (int i = 1180; i <= 1188; i++)
-				{
-					outPacket.WriteInt(i);
-					outPacket.WriteInt(i);
-					outPacket.WriteInt(0);
-					outPacket.WriteInt(0);
-					outPacket.WriteInt(0);
-					outPacket.WriteInt(0);
-					outPacket.WriteInt(2);
-					outPacket.WriteInt(0);
-					outPacket.WriteByte(0);
-				}
-				/*
-				//questGroupIndex='1'
-				outPacket.WriteInt(118002801);
-				outPacket.WriteInt(118002801);
-				outPacket.WriteHexString("00 00 00 00 FF FF 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00");
-				outPacket.WriteInt(118002802);
-				outPacket.WriteInt(118002802);
-				outPacket.WriteHexString("00 00 00 00 FF FF 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00");
-				outPacket.WriteInt(118002803);
-				outPacket.WriteInt(118002803);
-				outPacket.WriteHexString("00 00 00 00 FF FF 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00");
-				//questGroupIndex = '2'
-				outPacket.WriteInt(218010013);
-				outPacket.WriteInt(218010013);
-				outPacket.WriteHexString("00 00 00 00 FF FF 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00");
-				outPacket.WriteInt(218020015);
-				outPacket.WriteInt(218020015);
-				outPacket.WriteHexString("00 00 00 00 FF FF 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00");
-				outPacket.WriteInt(218030021);
-				outPacket.WriteInt(218030021);
-				outPacket.WriteHexString("00 00 00 00 FF FF 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00");
-				outPacket.WriteInt(218040014);
-				outPacket.WriteInt(218040014);
-				outPacket.WriteHexString("00 00 00 00 FF FF 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00");
-				//questGroupIndex='3'
-				outPacket.WriteInt(318010001);
-				outPacket.WriteInt(318010001);
-				outPacket.WriteHexString("00 00 00 00 FF FF 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00");
-				outPacket.WriteInt(318020002);
-				outPacket.WriteInt(318020002);
-				outPacket.WriteHexString("00 00 00 00 FF FF 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00");
-				outPacket.WriteInt(318030003);
-				outPacket.WriteInt(318030003);
-				outPacket.WriteHexString("00 00 00 00 FF FF 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00");
-				outPacket.WriteInt(318040004);
-				outPacket.WriteInt(318040004);
-				outPacket.WriteHexString("00 00 00 00 FF FF 00 00 00 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00");
-				*/
+				outPacket.WriteInt(0);
 				RouterListener.MySession.Client.Send(outPacket);
 			}
 		}

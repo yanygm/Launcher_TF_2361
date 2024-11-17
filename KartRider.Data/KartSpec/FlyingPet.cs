@@ -64,7 +64,6 @@ namespace KartRider
 					FlyingPet.StartForwardAccelForceSpeed = 0f;
 				}
 			}
-			Console.WriteLine("FlyingPet: {0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}", FlyingPet.DragFactor, FlyingPet.ForwardAccelForce, FlyingPet.DriftEscapeForce, FlyingPet.CornerDrawFactor, FlyingPet.NormalBoosterTime, FlyingPet.ItemBoosterTime, FlyingPet.TeamBoosterTime, FlyingPet.StartForwardAccelForceItem, FlyingPet.StartForwardAccelForceSpeed);
 			Kart_Spec.KartAll();
 		}
 	}

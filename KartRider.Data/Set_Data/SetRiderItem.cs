@@ -14,6 +14,7 @@ namespace Set_Data
 		public static short Set_HeadBand = 0;
 		public static short Set_HandGearL = 0;
 		public static short Set_Uniform = 0;
+		public static short Set_Decal = 0;
 		public static short Set_Pet = 0;
 		public static short Set_FlyingPet = 0;
 		public static short Set_Aura = 0;
@@ -23,6 +24,7 @@ namespace Set_Data
 		public static short Set_Tachometer = 0;
 		public static short Set_Dye = 1;
 		public static short Set_KartSN = 0;
+		public static short Set_slotBg = 0;
 
 		public static void Save_SetRiderItem()
 		{
@@ -62,6 +64,10 @@ namespace Set_Data
 			{
 				streamWriter.Write(SetRiderItem.Set_Uniform);
 			}
+			using (StreamWriter streamWriter = new StreamWriter(FileName.SetRiderItem_LoadFile + FileName.SetRiderItem_Decal + FileName.Extension, false))
+			{
+				streamWriter.Write(SetRiderItem.Set_Decal);
+			}
 			using (StreamWriter streamWriter = new StreamWriter(FileName.SetRiderItem_LoadFile + FileName.SetRiderItem_Pet + FileName.Extension, false))
 			{
 				streamWriter.Write(SetRiderItem.Set_Pet);
@@ -98,6 +104,10 @@ namespace Set_Data
 			{
 				streamWriter.Write(SetRiderItem.Set_KartSN);
 			}
+			using (StreamWriter streamWriter = new StreamWriter(FileName.SetRiderItem_LoadFile + FileName.SetRiderItem_slotBg + FileName.Extension, false))
+			{
+				streamWriter.Write(SetRiderItem.Set_slotBg);
+			}
 			Console.WriteLine("SetRiderItem-------------------------------------------------");
 			Console.WriteLine("Character: {0}", SetRiderItem.Set_Character);
 			Console.WriteLine("Paint: {0}", SetRiderItem.Set_Paint);
@@ -108,6 +118,7 @@ namespace Set_Data
 			Console.WriteLine("HeadBand: {0}", SetRiderItem.Set_HeadBand);
 			Console.WriteLine("HandGearL: {0}", SetRiderItem.Set_HandGearL);
 			Console.WriteLine("Uniform: {0}", SetRiderItem.Set_Uniform);
+			Console.WriteLine("Decal: {0}", SetRiderItem.Set_Decal);
 			Console.WriteLine("Pet: {0}", SetRiderItem.Set_Pet);
 			Console.WriteLine("FlyingPet: {0}", SetRiderItem.Set_FlyingPet);
 			Console.WriteLine("Aura: {0}", SetRiderItem.Set_Aura);
@@ -117,6 +128,7 @@ namespace Set_Data
 			Console.WriteLine("Tachometer: {0}", SetRiderItem.Set_Tachometer);
 			Console.WriteLine("Dye: {0}", SetRiderItem.Set_Dye);
 			Console.WriteLine("KartSN: {0}", SetRiderItem.Set_KartSN);
+			Console.WriteLine("slotBg: {0}", SetRiderItem.Set_slotBg);
 		}
 
 		public static void Load_SetRiderItem()
@@ -247,6 +259,20 @@ namespace Set_Data
 				}
 			}
 			//-------------------------------------------------------------------------
+			string Load_Decal = FileName.SetRiderItem_LoadFile + FileName.SetRiderItem_Decal + FileName.Extension;
+			if (File.Exists(Load_Decal))
+			{
+				string textValue = System.IO.File.ReadAllText(Load_Decal);
+				SetRiderItem.Set_Decal = short.Parse(textValue);
+			}
+			else
+			{
+				using (StreamWriter streamWriter = new StreamWriter(Load_Decal, false))
+				{
+					streamWriter.Write(SetRiderItem.Set_Decal);
+				}
+			}
+			//-------------------------------------------------------------------------
 			string Load_Pet = FileName.SetRiderItem_LoadFile + FileName.SetRiderItem_Pet + FileName.Extension;
 			if (File.Exists(Load_Pet))
 			{
@@ -370,6 +396,20 @@ namespace Set_Data
 				using (StreamWriter streamWriter = new StreamWriter(Load_KartSN, false))
 				{
 					streamWriter.Write(SetRiderItem.Set_KartSN);
+				}
+			}
+			//-------------------------------------------------------------------------
+			string Load_slotBg = FileName.SetRiderItem_LoadFile + FileName.SetRiderItem_slotBg + FileName.Extension;
+			if (File.Exists(Load_slotBg))
+			{
+				string textValue = System.IO.File.ReadAllText(Load_slotBg);
+				SetRiderItem.Set_slotBg = short.Parse(textValue);
+			}
+			else
+			{
+				using (StreamWriter streamWriter = new StreamWriter(Load_slotBg, false))
+				{
+					streamWriter.Write(SetRiderItem.Set_slotBg);
 				}
 			}
 		}

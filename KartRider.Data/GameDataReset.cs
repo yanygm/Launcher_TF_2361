@@ -6,6 +6,13 @@ namespace KartRider
 {
 	public class GameDataReset
 	{
+		public static void RandomTrack_DataReset()
+		{
+			RandomTrack.GameType = "item";
+			RandomTrack.SetRandomTrack = "allRandom";
+			RandomTrack.GameTrack = "forest_I01";
+		}
+
 		public static void GameType_DataReset()
 		{
 			GameType.TimeAttack_RP = 0;
@@ -37,7 +44,7 @@ namespace KartRider
 			StartGameData.StartTimeAttack_RankingTimaAttackType = 0;
 			StartGameData.StartTimeAttack_TimaAttackMpdeType = 0;
 			StartGameData.StartTimeAttack_TimaAttackMpde = 0;
-			//StartGameData.StartTimeAttack_RandomTrackGameType = 0;
+			StartGameData.StartTimeAttack_RandomTrackGameType = 0;
 		}
 
 		public static void SpeedType_DataReset()
@@ -149,12 +156,11 @@ namespace KartRider
 
 		public static void DataReset()
 		{
-			Launcher.OpenGetItem = false;
 			if (SetRider.Lucci > SessionGroup.LucciMax)
 			{
 				SetRider.Lucci = SessionGroup.LucciMax;
 			}
-			//GameDataReset.RandomTrack_DataReset();
+			GameDataReset.RandomTrack_DataReset();
 			GameDataReset.GameType_DataReset();
 			GameDataReset.StartGame_DataReset();
 			GameDataReset.SpeedType_DataReset();

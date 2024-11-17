@@ -74,5 +74,7 @@ namespace KartRider
 		public static float wallCollGaugeMaxVelLoss;
 		public static float wallCollGaugeMinVelBound;
 		public static float wallCollGaugeMinVelLoss;
+		//public static float modelMaxX;
+		//public static float modelMaxY;
 	}
 }

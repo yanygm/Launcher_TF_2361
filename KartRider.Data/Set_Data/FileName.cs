@@ -34,6 +34,7 @@ namespace Set_Data
 		public static string SetRiderItem_HeadBand = "Set_HeadBand";
 		public static string SetRiderItem_HandGearL = "Set_HandGearL";
 		public static string SetRiderItem_Uniform = "Set_Uniform";
+		public static string SetRiderItem_Decal = "Set_Decal";
 		public static string SetRiderItem_Pet = "Set_Pet";
 		public static string SetRiderItem_FlyingPet = "Set_FlyingPet";
 		public static string SetRiderItem_Aura = "Set_Aura";
@@ -43,6 +44,7 @@ namespace Set_Data
 		public static string SetRiderItem_Tachometer = "Set_Tachometer";
 		public static string SetRiderItem_Dye = "Set_Dye";
 		public static string SetRiderItem_KartSN = "Set_KartSN";
+		public static string SetRiderItem_slotBg = "Set_slotBg";
 
 		public static string SetMyRoom_MyRoom = "Set_MyRoom";
 		public static string SetMyRoom_MyRoomBGM = "Set_MyRoomBGM";

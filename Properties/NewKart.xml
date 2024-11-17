@@ -1,4 +1,4 @@
-﻿<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <NewKart>
 	<Kart id='1' sn='1' />
 	<Kart id='2' sn='1' />
@@ -1011,7 +1011,7 @@
 	<Kart id='1445' sn='1' />
 	<Kart id='1447' sn='1' />
 	<Kart id='1448' sn='1' />
-	<!--KR/CN>
+	<!--KR/CN-->
 	<Kart id='831' sn='1' />
 	<Kart id='908' sn='1' />
 	<Kart id='913' sn='1' />
@@ -1104,5 +1104,15 @@
 	<Kart id='1499' sn='1' />
 	<Kart id='1500' sn='1' />
 	<Kart id='1501' sn='1' />
-	<Kart id='1502' sn='1' /-->
+	<Kart id='1502' sn='1' />
+	<Kart id='1503' sn='1' />
+	<Kart id='1504' sn='1' />
+	<Kart id='1505' sn='1' />
+	<Kart id='1506' sn='1' />
+	<Kart id='1507' sn='1' />
+	<Kart id='1508' sn='1' />
+	<Kart id='1509' sn='1' />
+	<Kart id='1510' sn='1' />
+	<Kart id='1511' sn='1' />
+	<Kart id='1512' sn='1' />
 </NewKart>

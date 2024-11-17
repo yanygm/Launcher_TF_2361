@@ -86,6 +86,8 @@ namespace KartSpec
 					Kart.wallCollGaugeMaxVelLoss = float.Parse(xe.GetAttribute("wallCollGaugeMaxVelLoss"));
 					Kart.wallCollGaugeMinVelBound = float.Parse(xe.GetAttribute("wallCollGaugeMinVelBound"));
 					Kart.wallCollGaugeMinVelLoss = float.Parse(xe.GetAttribute("wallCollGaugeMinVelLoss"));
+					//Kart.modelMaxX = float.Parse(xe.GetAttribute("modelMaxX"));
+					//Kart.modelMaxY = float.Parse(xe.GetAttribute("modelMaxY"));
 				}
 			}
 			else
