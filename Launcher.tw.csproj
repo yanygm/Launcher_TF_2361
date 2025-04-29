@@ -56,7 +56,7 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Properties\1.ico</ApplicationIcon>
+    <ApplicationIcon>Properties\favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <RootNamespace>Launcher</RootNamespace>
@@ -97,7 +97,7 @@
     <Compile Include="KartRider.Data\ExcData\SpeedType.cs" />
     <Compile Include="KartRider.Data\KartSpec\FlyingPet.cs" />
     <Compile Include="KartRider.Data\KartSpec\Kart.cs" />
-    <Compile Include="KartRider.Data\KartSpec\Kart\KartSpec.cs" />
+    <Compile Include="KartRider.Data\KartSpec\KartSpec.cs" />
     <Compile Include="KartRider.Data\KartSpec\StartGameData.cs" />
     <Compile Include="KartRider.Common\PacketName\PacketNameValues.cs" />
     <Compile Include="KartRider.Common\TrackName\TrackNameValues.cs" />
@@ -116,7 +116,7 @@
     <Compile Include="KartRider.Data\Rider\RiderSchool.cs" />
     <Compile Include="KartRider.Data\Rider\FavoriteItem.cs" />
     <Compile Include="KartRider.Data\Rider\NewRider.cs" />
-    <Compile Include="KartRider.Data\ExcData\TuneSpec.cs" />
+    <Compile Include="KartRider.Data\ExcData\KartExcSpec.cs" />
     <Compile Include="KartRider.Data\Set_Data\SetGameOption.cs" />
     <Compile Include="KartRider.Data\Set_Data\SetGameData.cs" />
     <Compile Include="KartRider.Data\Set_Data\SetMyRoom.cs" />
@@ -171,7 +171,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Properties\1.ico" />
+    <Content Include="Properties\favicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
