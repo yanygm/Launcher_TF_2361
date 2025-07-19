@@ -389,7 +389,7 @@ namespace KartRider
 						}
 						using (OutPacket outPacket = new OutPacket("PcSlaveNotice"))
 						{
-							outPacket.WriteString("單機版完全免費，跑跑資訊站：https://kartinfo.me/thread-9369-1-1.html");
+							outPacket.WriteString("單機版完全免費，GitHub：https://github.com/yanygm/Launcher_TF_2361");
 							this.Parent.Client.Send(outPacket);
 						}
 						return;
