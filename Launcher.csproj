@@ -3,7 +3,7 @@
   <PropertyGroup>
     <AssemblyName>Launcher</AssemblyName>
     <RootNamespace>Launcher</RootNamespace>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <SelfContained>false</SelfContained>
@@ -30,4 +30,5 @@
     <DebugType>none</DebugType>
   </PropertyGroup>
 </Project>
+
 
